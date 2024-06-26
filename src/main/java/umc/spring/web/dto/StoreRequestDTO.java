@@ -12,6 +12,6 @@ public class StoreRequestDTO {
         @NotNull
         Float score;
 
-        String Body;
+        String body;
     }
 }
