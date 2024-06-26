@@ -11,7 +11,7 @@ import java.lang.annotation.*;
 @Target( { ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ExistPage {
-    String message() default "페이지는 0 이상이어야 합니다.";
+    String message() default "페이지는 1 이상이어야 합니다.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

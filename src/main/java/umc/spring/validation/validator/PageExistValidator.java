@@ -19,7 +19,7 @@ public class PageExistValidator implements ConstraintValidator<ExistPage, Intege
 
     @Override
     public boolean isValid(Integer value, ConstraintValidatorContext context) {
-        boolean isValid = value != null && value >= 0;
+        boolean isValid = value != null && value >= 1;
         if (!isValid) {
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate(ErrorStatus.PAGE_NOT_VALID.toString()).addConstraintViolation();
