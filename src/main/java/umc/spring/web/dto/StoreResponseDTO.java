@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class StoreResponseDTO {
@@ -61,5 +62,13 @@ public class StoreResponseDTO {
         Integer reward;
         String missionSpec;
         LocalDate deadline;
+    }
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MissionAddResultDTO{
+        Long missionId;
+        LocalDateTime createdAt;
     }
 }
