@@ -33,6 +33,10 @@ public class MemberRestController {
     private final MemberQueryService memberQueryService;
 
     @PostMapping("/")
+    @Operation(summary = "회원가입 API",description = "회원가입 API입니다.")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200",description = "OK, 성공"),
+    })
     public ApiResponse<MemberResponseDTO.JoinResultDTO> join(@RequestBody @Valid MemberRequestDTO.JoinDto request){
         Member member = memberCommandService.joinMember(request);
         return ApiResponse.onSuccess(MemberConverter.toJoinResultDTO(member));
