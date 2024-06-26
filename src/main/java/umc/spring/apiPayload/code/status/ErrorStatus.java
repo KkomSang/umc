@@ -23,6 +23,8 @@ public enum ErrorStatus implements BaseErrorCode {
     //카테고리
     FOOD_CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND, "Category4001", "카테고리가 없습니다."),
 
+    //페이지
+    PAGE_NOT_VALID(HttpStatus.NOT_FOUND, "Page4001", "페이지는 0 이상이어야 합니다."),
     //예시
     ARTICLE_NOT_FOUND(HttpStatus.NOT_FOUND, "ARTICLE4001", "게시글이 없습니다."),
 
