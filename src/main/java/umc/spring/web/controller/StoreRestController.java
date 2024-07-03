@@ -30,7 +30,7 @@ public class StoreRestController {
     private final StoreCommandService storeCommandService;
     private final StoreQueryService storeQueryService;
 
-    @PostMapping("/{storeId}/reviews")
+    @PostMapping(value = "/{storeId}/reviews", consumes = "multipart/form-data")
     @Operation(summary = "가게 리뷰 추가 API",description = "특정 가게에 리뷰를 추가하는 API입니다.")
     @ApiResponses({
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200",description = "OK, 성공"),
@@ -43,7 +43,7 @@ public class StoreRestController {
             @Parameter(name = "memberId", description = "유저의 아이디입니다."),
     })
     public ApiResponse<StoreResponseDTO.ReviewResultDTO> createReview(@RequestBody @Valid StoreRequestDTO.ReviewRequestDTO request,
-                                                                      @RequestParam(name="sotreId") Long storeId,
+                                                                      @RequestParam(name="storeId") Long storeId,
                                                                       @RequestParam(name="memberId") Long memberId){
         Review review = storeCommandService.createReview(memberId, storeId, request);
         return ApiResponse.onSuccess(StoreConverter.toReviewResponseDTO(review));
