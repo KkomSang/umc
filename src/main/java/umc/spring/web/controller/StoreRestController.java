@@ -41,8 +41,8 @@ public class StoreRestController {
     @Parameters({
             @Parameter(name = "storeId", description = "가게의 아이디, path variable 입니다!"),
             @Parameter(name = "memberId", description = "유저의 아이디입니다."),
-    })
-    public ApiResponse<StoreResponseDTO.ReviewResultDTO> createReview(@RequestBody @Valid StoreRequestDTO.ReviewRequestDTO request,
+    }) // S3 사용을 위해 @RequestBody 대신 @ModelAttribute를 사용하면 dto에 @Setter 사용해야 함!!
+    public ApiResponse<StoreResponseDTO.ReviewResultDTO> createReview(@ModelAttribute @Valid StoreRequestDTO.ReviewRequestDTO request,
                                                                       @RequestParam(name="storeId") Long storeId,
                                                                       @RequestParam(name="memberId") Long memberId){
         Review review = storeCommandService.createReview(memberId, storeId, request);
